@@ -19,12 +19,12 @@ app.get("/", (req, res) => {
 // app.post();
 // app.put();
 
-app.get("/movies", (req, res) => {
+app.get("/art", (req, res) => {
   db.executeQuery(
     `SELECT *
-  FROM movie
-  LEFT JOIN Genre
-  ON Genre.GenrePK = Movie.GenreFK`
+    FROM Art
+    LEFT JOIN Artist
+    ON Artist.ArtistPK = Art.ArtistFK`
   )
     .then((theResults) => {
       res.status(200).send(theResults);
@@ -35,14 +35,14 @@ app.get("/movies", (req, res) => {
     });
 });
 
-app.get("/movies/:pk", (req, res) => {
+app.get("/art/:pk", (req, res) => {
   let pk = req.params.pk;
   // console.log(pk);
   let myQuery = `SELECT *
-  FROM movie
-  LEFT JOIN Genre
-  ON Genre.GenrePK = Movie.GenreFK
-  WHERE MoviePK = ${pk}`;
+  FROM Art
+  LEFT JOIN Artist
+  ON Artist.ArtistPK = Art.ArtistFK
+  WHERE ArtPK = ${pk}`;
 
   db.executeQuery(myQuery)
     .then((result) => {
@@ -54,7 +54,7 @@ app.get("/movies/:pk", (req, res) => {
       }
     })
     .catch((err) => {
-      console.log("Error in /movies/:pk", err);
+      console.log("Error in /art/:pk", err);
       res.status(500).send();
     });
 });
