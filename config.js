@@ -1,9 +1,9 @@
 const config = {
   DB: {
-    user: "emonty",
-    password: "1234567890!a",
-    server: "cobazsqlcis410.database.windows.net",
-    database: "emonty",
+    user: "csu",
+    password: "Uuxwp7Mcxo7Khy",
+    server: "cobazsqlcis410.database.windows.net", // You can use 'localhost\\instance' to connect to named instance
+    database: "RWStudios",
   },
 };
 
